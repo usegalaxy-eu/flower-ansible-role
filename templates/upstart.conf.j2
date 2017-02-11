@@ -1,0 +1,19 @@
+description "flower"
+
+exec 2>&1
+
+start on runlevel [2345]
+stop on runlevel [!2345]
+
+respawn
+respawn limit 10 5
+
+console log
+
+setuid {{ flower_user  }}
+setgid {{ flower_group }}
+
+chdir {{ flower_deploy_dir }}
+script
+  exec flower --conf {{ flower_conf_dir }}/flowerconfig.py --log_file_prefix={{ flower_log_dir }}
+end script  

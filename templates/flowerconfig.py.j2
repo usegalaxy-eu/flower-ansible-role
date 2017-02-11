@@ -1,0 +1,8 @@
+# {{ ansible_managed }}
+#
+# Log related options are passed directly via the command line
+
+address    = "{{ flower_bind_address }}"
+port       = {{ flower_port }}
+broker_api = "{{ flower_broker_url }}"
+

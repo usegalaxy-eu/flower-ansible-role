@@ -1,0 +1,19 @@
+---
+
+flower_python_package_name:    flower
+flower_python_package_version: 0.9.1
+
+flower_user:  www-data
+flower_group: www-data
+
+flower_deploy_dir:   /srv/flower
+flower_log_dir:      /var/log/flower
+flower_conf_dir:     /etc/flower
+
+flower_bind_address: "0.0.0.0"
+flower_port:         5555
+
+flower_broker_url: "amqp://localhost:5672/"
+
+flower_state:   running
+flower_enabled: yes

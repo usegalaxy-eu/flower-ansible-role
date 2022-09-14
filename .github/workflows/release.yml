@@ -7,10 +7,10 @@
 
 name: Release
 
-'on':
+"on":
   push:
     tags:
-      - '*'
+      - "*"
 
 jobs:
   release:
@@ -23,7 +23,7 @@ jobs:
       - name: Set up Python 3.
         uses: actions/setup-python@v2
         with:
-          python-version: '3.x'
+          python-version: "3.x"
 
       - name: Install Ansible.
         run: pip3 install ansible-core

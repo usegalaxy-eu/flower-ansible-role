@@ -1,5 +1,4 @@
 ---
-
 - name: Ensure deploy directory exists
   tags: [flower, dirs]
   file: state=directory path="{{ flower_deploy_dir }}" owner=root group=root mode=0755

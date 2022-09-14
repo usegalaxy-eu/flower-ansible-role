@@ -1,5 +1,5 @@
 galaxy_info:
-  role_name: flower_ansible_role
+  role_name: flower
   namespace: usegalaxy_eu
   author: Dhruv Bansal / Mira Kuntz
   description: Installs Flower, a web UI for Celery

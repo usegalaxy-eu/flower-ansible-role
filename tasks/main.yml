@@ -21,9 +21,9 @@
   template: src="flowerconfig.py.j2" dest="{{ flower_conf_dir }}/flowerconfig.py" owner=root group="{{ flower_group }}" mode=0640
 
 - name: Ensure Flower Upstart configuration file is correct
-  when: ansible_os_family == "Debian"
-  tags: [flower, service, upstart]
-  template: src="upstart.conf.j2" dest="/etc/init/flower.conf" owner=root group=root mode=0644
+  when: ansible_os_family == "RedHat"
+  tags: [flower, service, systemd]
+  template: src="flower.service.j2" dest="/etc/systemd/system/flower.service" owner=root group=root mode=0644
 
 - name: Ensure Flower service definition is correct
   tags: [flower, service]

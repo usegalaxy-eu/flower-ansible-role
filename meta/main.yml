@@ -1,11 +1,13 @@
 galaxy_info:
-  author: Dhruv Bansal
+  role_name: flower_ansible_role
+  namespace: usegalaxy_eu
+  author: Dhruv Bansal / Mira Kuntz
   description: Installs Flower, a web UI for Celery
   company: Unchained Capital
   license: Apache
   min_ansible_version: 1.2
   platforms:
-    - name: Ubuntu
+    - name: Centos, RHEL, Fedora, Rocky Linux
       versions:
         - all
         - trusty

@@ -33,4 +33,3 @@ jobs:
           ${{ secrets.ANSIBLE_GALAXY_API_KEY }} \
           $(echo ${{ github.repository }} | cut -d/ -f1) \
           $(echo ${{ github.repository }} | cut -d/ -f2) --branch master
-

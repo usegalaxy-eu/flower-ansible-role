@@ -1,0 +1,7 @@
+---
+- name: Converge
+  hosts: all
+  tasks:
+    - name: "Include flower_ansible_role"
+      include_role:
+        name: "flower_ansible_role"

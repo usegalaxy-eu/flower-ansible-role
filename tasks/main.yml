@@ -6,30 +6,32 @@
 
 - name: Ensure log directory exists
   tags: [flower, dirs]
-  file: "state=directory path="{{ flower_log_dir }}"\
-    owner="{{ flower_user }}" group="{{ flower_user }}" mode=0755"
+  file: 'state=directory path="{{ flower_log_dir }}" \
+    owner="{{ flower_user }}" group="{{ flower_user }}" mode=0755'
 
 - name: Ensure config directory exists
   tags: [flower, dirs]
-  file: "state=directory path="{{ flower_conf_dir }}" \
-    owner=root group=root mode=0755"
+  file: 'state=directory path="{{ flower_conf_dir }}" \
+    owner=root group=root mode=0755'
 
 - name: Ensure Python Flower package is installed
   tags: [flower, python, pip]
-  pip: "name="{{ flower_python_package_name }}" \
-    version="{{ flower_python_package_version }}" state=present"
+  pip: 'name="{{ flower_python_package_name }}" \
+    version="{{ flower_python_package_version }}" state=present'
 
 - name: Ensure Flower configuration file is correct
   tags: [flower, config]
-  template: "src="flowerconfig.py.j2" dest="{{ flower_conf_dir }}/flowerconfig.py" \
-    owner=root group="{{ flower_group }}" mode=0640"
+  template: 'src="flowerconfig.py.j2" \
+    dest="{{ flower_conf_dir }}/flowerconfig.py" \
+    owner=root group="{{ flower_group }}" mode=0640'
 
 - name: Ensure Flower Upstart configuration file is correct
   when: ansible_os_family == "RedHat"
   tags: [flower, service, systemd]
-  template: "src="flower.service.j2" dest="/etc/systemd/system/flower.service" \
-    owner=root group=root mode=0644"
+  template: 'src="flower.service.j2" dest="/etc/systemd/system/flower.service" \
+    owner=root group=root mode=0644'
 
 - name: Ensure Flower service definition is correct
   tags: [flower, service]
-  service: name="flower" state="{{ flower_state }}" enabled="{{ flower_enabled }}"
+  service: 'name="flower" state="{{ flower_state }}" \
+    enabled="{{ flower_enabled }}"'

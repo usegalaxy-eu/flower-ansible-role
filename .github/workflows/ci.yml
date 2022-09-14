@@ -1,6 +1,6 @@
 ---
 name: CI
-'on':
+"on":
   pull_request:
   push:
     branches:
@@ -8,7 +8,7 @@ name: CI
 
 defaults:
   run:
-    working-directory: 'usegalaxy_eu.flower'
+    working-directory: "usegalaxy_eu.flower"
 
 jobs:
   lint:
@@ -18,12 +18,12 @@ jobs:
       - name: Check out the codebase.
         uses: actions/checkout@v2
         with:
-          path: 'usegalaxy_eu.flower'
+          path: "usegalaxy_eu.flower"
 
       - name: Set up Python 3.
         uses: actions/setup-python@v2
         with:
-          python-version: '3.x'
+          python-version: "3.x"
 
       - name: Install test dependencies.
         run: pip3 install yamllint

@@ -8,6 +8,7 @@ flower_group: galaxy
 flower_app_dir: /opt/galaxy
 flower_app_name: galaxy.celery
 flower_venv_dir: /opt/galaxy/venv/bin/celery
+flower_python_path: galaxy/server
 
 flower_deploy_dir: /srv/flower
 flower_log_dir: /var/log/flower
@@ -23,9 +24,8 @@ flower_persistent: "true"
 flower_broker_url: "amqp://localhost:5672//"
 
 flower_ui_users:
-  guest:
-    - name: guest
-    - password: guest
+  - name: guest
+    password: guest
 
-flower_state: running
+flower_state: started
 flower_enabled: yes

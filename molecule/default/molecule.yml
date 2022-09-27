@@ -7,7 +7,6 @@ platforms:
   - name: instance
     image: quay.io/rockylinux/rockylinux
     pre_build_image: true
-    privileged: true
     command: "/usr/sbin/init"
 provisioner:
   name: ansible

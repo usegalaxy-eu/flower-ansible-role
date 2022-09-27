@@ -7,14 +7,10 @@ platforms:
   - name: instance
     image: quay.io/rockylinux/rockylinux
     pre_build_image: true
-    volumes:
-      - /sys/fs/cgroup:/sys/fs/cgroup:ro
     privileged: true
     command: "/usr/sbin/init"
 provisioner:
   name: ansible
-  #env:
-  #  ANSIBLE_VERBOSITY: 3
 verifier:
   name: ansible
 

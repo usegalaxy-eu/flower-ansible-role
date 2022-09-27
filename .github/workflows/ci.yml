@@ -47,5 +47,6 @@ jobs:
         uses: gofrolist/molecule-action@v2.2.42
         with:
           molecule_command: test
+          molecule_working_dir: "${GITHUB_REPOSITORY}"
         env:
           ANSIBLE_FORCE_COLOR: "1"

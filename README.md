@@ -1,27 +1,30 @@
-This is an [Ansible](http://www.ansible.com/home) role for an
-installation of [Flower](http://flower.readthedocs.io/en/latest/).
+This is an [Ansible](http://www.ansible.com/home) role for installing Celery's Web UI [Flower](http://flower.readthedocs.io/en/latest/).
 
 # What it Does
 
-Installs the `flower` Python module (using the `pip` module), defines
-a `flower` service, and sets up logging, configuration of that
-service.
+This role installs the `flower` Python module (using `pip`), defines
+a `flower` service and a flowerconfig.py file and starts this service.
 
 # Usage
 
-Use the role in a playbook like this:
+A very basic playbook could look like this:
 
 ```yaml
 - hosts: all
   roles:
-    - flower
+    - role: flower
+      vars:
+        flower_port: 80
+        flower_app_name: proj
+        flower_app_dir: /my/cool/app
+        flower_broker_url: http://localhost:5671
 ```
 
-This role installs `celery`, however if you want to use your own celery, you can set the `{{ flower_venv_dir }}` variable.
+This role installs `celery`, however if you want to use your own celery installation, you can set the `{{ flower_venv_dir }}` variable.
 For using apps with `flower`, it is important to set the `{{ flower_app_dir }}` variable to the app directory, which will be also the service working directory. The `{{ flower_app_name }}` is only the module name.  
 When using this role for Galaxy servers, please set both:
 
 - `{{ flower_app_dir }}`
 - `{{ flower_python_path }}` (can be relative to app dir)
 
-It is recommended to store `{{ flower_ui_users }}` and broker url/api vars in `secret_group_vars`.
+It is highly recommended to store `{{ flower_ui_users }}` and broker url/api vars in `secret_group_vars`.

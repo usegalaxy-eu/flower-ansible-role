@@ -20,7 +20,7 @@ flower_conf_dir: /etc/flower
 flower_mem_limit: 2G
 
 flower_bind_address: "0.0.0.0"
-flower_port: "5555"
+flower_port: 5555
 flower_broker_api: ""
 flower_persistent: "False"
 

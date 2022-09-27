@@ -39,8 +39,8 @@
 - name: Ensure Python3 and pip is installed
   ansible.builtin.package:
     name:
-      - python39
-      - python3-pip
+      - "{{ flower_python_version }}"
+      - "{{ flower_pip_version }}"
     state: present
 
 - name: Ensure Python Flower package is installed

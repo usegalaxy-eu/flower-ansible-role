@@ -1,4 +1,14 @@
 ---
+- name: Ensure group exists
+  ansible.builtin.group:
+    name: "{{ flower_group }}"
+    state: present
+
+- name: Ensure user exists
+  ansible.builtin.user:
+    name: "{{ flower_user }}"
+    append: yes
+
 - name: Ensure deploy directory exists
   tags: [flower, dirs]
   file:
@@ -26,6 +36,13 @@
     group: root
     mode: 0755
 
+- name: Ensure Python3 and pip is installed
+  ansible.builtin.package:
+    name:
+      - python39
+      - python3-pip
+    state: present
+
 - name: Ensure Python Flower package is installed
   tags: [flower, python, pip]
   pip:
@@ -42,7 +59,7 @@
     group: "{{ flower_group }}"
     mode: 0640
 
-- name: Ensure Flower Upstart configuration file is correct
+- name: Ensure Flower Unitfile is correct
   when:
     ansible_os_family: RedHat
   tags: [flower, service, systemd]

@@ -20,7 +20,7 @@ A very basic playbook could look like this:
         flower_broker_url: http://localhost:5671
 ```
 
-This role installs `celery`, however if you want to use your own celery installation, you can set the `{{ flower_venv_dir }}` variable.
+This role installs `celery`, however if you want to use your own celery installation, you can set the `{{ flower_venv_dir }}` variable without the /bin/celery part.  
 For using apps with `flower`, it is important to set the `{{ flower_app_dir }}` variable to the app directory, which will be also the service working directory. The `{{ flower_app_name }}` is only the module name.  
 When using this role for Galaxy servers, please set both:
 

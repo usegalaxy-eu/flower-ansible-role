@@ -4,7 +4,7 @@
 
 address    = "{{ flower_bind_address }}"
 port       = "{{ flower_port }}"
-broker_api = "{{ flower_broker_url }}"
+broker_api = "{{ flower_broker_api }}"
 persistent = {{ flower_persistent }}
 basic_auth = [{% for user in flower_ui_users %} "{{ user.name }}:{{ user.password }}", {% endfor %}]
 

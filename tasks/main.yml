@@ -7,22 +7,24 @@
 - name: Ensure user exists
   ansible.builtin.user:
     name: "{{ flower_user }}"
+    groups: ["{{ flower_group }}"]
     append: yes
 
-- name: Ensure deploy directory exists
-  tags: [flower, dirs]
-  file:
-    state: directory
-    path: "{{ flower_deploy_dir }}"
-    owner: root
-    group: root
-    mode: 0755
+- name: Check if the app directory exists
+  ansible.builtin.find:
+    paths: "{{ flower_app_dir }}"
+  register: appdir
+
+- name: Empty app directory
+  ansible.builtin.fail:
+    msg: "Directory {{ flower_app_dir }} is empty or missing."
+  when: appdir is defined and appdir.matched <= 0 and flower_app_dir != ""
 
 - name: Ensure log directory exists
   tags: [flower, dirs]
   file:
-    state: directory
-    path: "{{ flower_log_dir }}"
+    state: touch
+    path: "{{ flower_log_file }}"
     owner: "{{ flower_user }}"
     group: "{{ flower_user }}"
     mode: 0755

@@ -13,13 +13,12 @@ flower_app_name: ""
 flower_venv_dir: /usr/local
 flower_python_path: ""
 
-flower_deploy_dir: /srv/flower
-flower_log_dir: /var/log/flower
+flower_log_file: /var/log/flower
 flower_conf_dir: /etc/flower
 
 flower_mem_limit: 2G
 
-flower_bind_address: "0.0.0.0"
+flower_bind_address: 0.0.0.0
 flower_port: 5555
 flower_broker_api: ""
 flower_persistent: "False"

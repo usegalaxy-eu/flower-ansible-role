@@ -20,11 +20,26 @@ A very basic playbook could look like this:
         flower_broker_url: http://localhost:5671
 ```
 
-This role installs `celery`, however if you want to use your own celery installation, you can set the `{{ flower_venv_dir }}` variable without the /bin/celery part.  
-For using apps with `flower`, it is important to set the `{{ flower_app_dir }}` variable to the app directory, which will be also the service working directory. The `{{ flower_app_name }}` is only the module name.  
+It is highly recommended to store `{{ flower_ui_users }}` and broker  
+url/api vars in `secret_group_vars`.
+It is highly recommended to store `{{ flower_ui_users }}` and broker url/api vars in `secret_group_vars`.
+
+## Venv
+
+The role installs `celery` automatically in the `{{ flower_user }}`'s home directory (`~/.local/bin/celery`).  
+To use your custom virtual environment, you can set the  
+`{{ flower_venv_dir }}` variable (without the /bin/celery part) and  
+the role will install it there or create the specified directory and virtual environment first.
+
+## Apps
+
+For using apps with `flower`, it is important to set the `{{ flower_app_dir }}`  
+variable to the app directory, which will be also the service working directory.  
+The `{{ flower_app_name }}` is only the module name.
+
+## Galaxy
+
 When using this role for Galaxy servers, please set both:
 
 - `{{ flower_app_dir }}`
 - `{{ flower_python_path }}` (can be relative to app dir)
-
-It is highly recommended to store `{{ flower_ui_users }}` and broker url/api vars in `secret_group_vars`.

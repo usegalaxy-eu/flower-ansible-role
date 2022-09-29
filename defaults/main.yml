@@ -3,6 +3,7 @@ flower_python_package_name: flower
 flower_python_package_version: 1.2.0
 
 flower_python_version: python39
+flower_python_main: python3
 flower_pip_version: python3-pip
 
 flower_user: galaxy
@@ -10,7 +11,7 @@ flower_group: galaxy
 
 flower_app_dir: ""
 flower_app_name: ""
-flower_venv_dir: /usr/local
+flower_venv_dir: "/home/{{ flower_user }}/.local"
 flower_python_path: ""
 
 flower_log_file: /var/log/flower

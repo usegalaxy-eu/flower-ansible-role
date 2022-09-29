@@ -1,6 +1,10 @@
 ---
 - name: Converge
   hosts: all
+  vars:
+    - flower_venv_dir: /test/venv
+    - flower_python_path: /usr/bin/python3
+    - flower_python_version: python3
   tasks:
     - name: "Include flower_ansible_role"
       include_role:

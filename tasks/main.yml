@@ -13,6 +13,7 @@
 - name: Check if the app directory exists
   ansible.builtin.find:
     paths: "{{ flower_app_dir }}"
+    file_type: directory
   register: appdir
 
 - name: Empty app directory

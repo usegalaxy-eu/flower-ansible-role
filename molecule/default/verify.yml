@@ -41,6 +41,15 @@
         port: 5555
         delay: 1
 
+    - name: Ensure app is Loaded
+      lineinfile:
+        path: /var/log/flower
+        line: "     'tasks.add']"
+        state: present
+      check_mode: yes
+      register: app
+      failed_when: app is changed
+
     - name: Get html
       uri:
         url: http://guest:guest@localhost.localdomain:5555

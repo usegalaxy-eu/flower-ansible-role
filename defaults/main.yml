@@ -13,6 +13,7 @@ flower_app_dir: ""
 flower_app_name: ""
 flower_venv_dir: "/home/{{ flower_user }}/.local"
 flower_python_path: ""
+flower_galaxy_conf: "{{ galaxy_root }}/config/galaxy.yml"
 
 flower_log_file: /var/log/flower
 flower_conf_dir: /etc/flower

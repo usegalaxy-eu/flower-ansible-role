@@ -33,3 +33,4 @@ flower_ui_users:
 
 flower_state: started
 flower_enabled: yes
+flower_environment_variables: []

@@ -23,6 +23,7 @@ flower_bind_address: 0.0.0.0
 flower_port: 5555
 flower_broker_api: ""
 flower_persistent: "False"
+flower_db_file: "flower" # https://flower.readthedocs.io/en/latest/config.html#db
 
 flower_broker_url: ""
 

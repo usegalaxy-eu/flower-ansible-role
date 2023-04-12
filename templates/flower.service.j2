@@ -14,6 +14,10 @@ ExecStart={{ flower_venv_dir }}/bin/celery {% if flower_broker_url %}--broker={{
 
 {% if flower_python_path %}Environment=PYTHONPATH={{ flower_python_path }}{% endif %}
 
+{% for item in flower_environment_variables %}
+Environment={{ item }}={{ flower_environment_variables[item] }}
+{% endfor %}
+
 MemoryLimit={{ flower_mem_limit }}
 
 Restart=always

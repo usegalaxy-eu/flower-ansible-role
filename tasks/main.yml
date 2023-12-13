@@ -24,8 +24,8 @@
 - name: Ensure log directory exists
   tags: [flower, dirs]
   file:
-    state: touch
-    path: "{{ flower_log_file }}"
+    state: dir
+    path: "{{ flower_log_dir }}"
     owner: "{{ flower_user }}"
     group: "{{ flower_user }}"
     mode: 0755

@@ -16,6 +16,8 @@ flower_python_path: ""
 flower_galaxy_conf: "{{ galaxy_root }}/config/galaxy.yml"
 
 flower_log_dir: /var/log/flower
+flower_log_num: 5
+flower_log_size: 20000000
 flower_conf_dir: /etc/flower
 
 flower_mem_limit: 2G

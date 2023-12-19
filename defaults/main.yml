@@ -9,6 +9,11 @@ flower_pip_version: python3-pip
 flower_user: galaxy
 flower_group: galaxy
 
+flower_venv_user: root
+flower_venv_group: root
+
+flower_install: true
+
 flower_app_dir: ""
 flower_app_name: ""
 flower_venv_dir: "/home/{{ flower_user }}/.local"

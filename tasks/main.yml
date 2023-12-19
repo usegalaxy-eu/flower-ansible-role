@@ -46,19 +46,22 @@
       - "{{ flower_pip_version }}"
       - virtualenv
     state: present
+  when: flower_install
 
 - name: Install virtualenv
   ansible.builtin.pip:
     name: virtualenv
+  when: flower_install
 
 - name: Ensure venv directory exists
   tags: [flower, dirs]
   file:
     state: directory
     path: "{{ flower_venv_dir }}"
-    owner: root
-    group: root
+    owner: "{{ flower_venv_user }}"
+    group: "{{ flower_venv_group }}"
     mode: 0755
+  when: flower_install
 
 - name: Ensure Python Flower package is installed
   tags: [flower, python, pip]
@@ -68,6 +71,7 @@
     virtualenv: "{{ flower_venv_dir }}"
     virtualenv_python: "{{ flower_python_main }}"
     state: present
+  when: flower_install
 
 - name: Ensure Flower configuration file is correct
   tags: [flower, config]

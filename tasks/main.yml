@@ -39,15 +39,6 @@
     group: root
     mode: 0755
 
-- name: Ensure Python3 and pip is installed
-  ansible.builtin.package:
-    name:
-      - "{{ flower_python_version }}"
-      - "{{ flower_pip_version }}"
-      - virtualenv
-    state: present
-  when: flower_install
-
 - name: Install virtualenv
   ansible.builtin.pip:
     name: virtualenv

@@ -20,6 +20,7 @@ flower_venv_dir: "/home/{{ flower_user }}/.local"
 flower_python_path: ""
 flower_galaxy_conf: "{{ galaxy_root }}/config/galaxy.yml"
 
+flower_custom_logging: false
 flower_log_dir: /var/log/flower
 flower_log_num: 5
 flower_log_size: 20000000

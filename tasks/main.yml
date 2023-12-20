@@ -29,6 +29,7 @@
     owner: "{{ flower_user }}"
     group: "{{ flower_user }}"
     mode: 0755
+  when: flower_custom_logging
 
 - name: Ensure config directory exists
   tags: [flower, dirs]

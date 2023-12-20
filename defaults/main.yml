@@ -9,12 +9,18 @@ flower_pip_version: python3-pip
 flower_user: galaxy
 flower_group: galaxy
 
+flower_venv_user: root
+flower_venv_group: root
+
+flower_install: true
+
 flower_app_dir: ""
 flower_app_name: ""
 flower_venv_dir: "/home/{{ flower_user }}/.local"
 flower_python_path: ""
 flower_galaxy_conf: "{{ galaxy_root }}/config/galaxy.yml"
 
+flower_custom_logging: false
 flower_log_dir: /var/log/flower
 flower_log_num: 5
 flower_log_size: 20000000
@@ -26,7 +32,7 @@ flower_bind_address: 0.0.0.0
 flower_port: 5555
 flower_broker_api: ""
 flower_persistent: "False"
-flower_db_file: "flower" # https://flower.readthedocs.io/en/latest/config.html#db
+flower_db_file: "flower"
 
 flower_broker_url: ""
 

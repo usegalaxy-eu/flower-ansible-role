@@ -1,6 +1,6 @@
 ---
 flower_python_package_name: flower
-flower_python_package_version: 1.2.0
+flower_python_package_version: 2.0.1
 
 flower_python_version: python39
 flower_python_main: python3

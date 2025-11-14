@@ -40,11 +40,6 @@
     group: root
     mode: 0755
 
-- name: Install virtualenv
-  ansible.builtin.pip:
-    name: virtualenv
-  when: flower_install
-
 - name: Ensure venv directory exists
   tags: [flower, dirs]
   file:

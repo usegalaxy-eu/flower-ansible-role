@@ -28,7 +28,7 @@ ExecStart={{ flower_venv_dir }}/bin/celery {% if flower_broker_url %}--broker={{
 Environment={{ item }}={{ flower_environment_variables[item] }}
 {% endfor %}
 
-MemoryLimit={{ flower_mem_limit }}
+MemoryMax={{ flower_mem_limit }}
 
 Restart=always
 

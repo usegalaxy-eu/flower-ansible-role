@@ -28,7 +28,11 @@ ExecStart={{ flower_venv_dir }}/bin/celery {% if flower_broker_url %}--broker={{
 Environment={{ item }}={{ flower_environment_variables[item] }}
 {% endfor %}
 
+{% if ansible_os_family | lower == 'redhat' and ansible_distribution_major_version | int >= 8 %}
 MemoryMax={{ flower_mem_limit }}
+{% else %}
+MemoryLimit={{ flower_mem_limit }}
+{% endif %}
 
 Restart=always
 

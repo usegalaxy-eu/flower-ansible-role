@@ -70,8 +70,6 @@
     mode: 0640
 
 - name: Ensure Flower unitfile is correct
-  when:
-    ansible_os_family: RedHat
   tags: [flower, service, systemd]
   template:
     src: flower.service.j2

@@ -35,6 +35,7 @@ MemoryLimit={{ flower_mem_limit }}
 {% endif %}
 
 Restart=always
+RestartSec={{ flower_restart_sec }}
 
 MemoryAccounting=yes
 CPUAccounting=yes
